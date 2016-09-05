@@ -33,10 +33,10 @@ app.use('/reg', routes);
 app.use('/login', routes);
 app.use('/logout', routes);
 
-app.use(session({
+/*app.use(session({
     secret: settings.cookieSecret,
     store: new MongoStore({ db: db_instance })
-}));
+}));*/
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

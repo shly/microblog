@@ -20,7 +20,7 @@ router.post('/reg', function(req, res, next) {
 	 	req.flash('error', ' 两次输入的口令不一致');
 	 	return res.redirect('/reg');
 	 }
-	 /*var md5 = crypto.createHash('md5');
+	 var md5 = crypto.createHash('md5');
 	 var password = md5.update(req.body.password).digest('base64');
 	 var newUser = new User({
 		 name: req.body.username,
@@ -44,7 +44,7 @@ router.post('/reg', function(req, res, next) {
 			 req.flash('success', ' 注册成功');
 			 res.redirect('/');
 		 });
-	 });*/
+	 });
 
 });
 router.get('/login', function(req, res, next) {
