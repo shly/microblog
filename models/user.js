@@ -4,7 +4,7 @@ function User(user) {
  this.password = user.password;
 };
 module.exports = User;
-User.prototype.save = function(){
+User.prototype.save = function(callback){
 	var user = {
 		name:this.name,
 		password:this.password
@@ -14,6 +14,7 @@ User.prototype.save = function(){
 		 	console.log(123);
 		 	return callback(err);
 		 }
+		 console.log('connect db');
 		 // 读取 users 集合
 		 db.collection('users', function(err, collection) {
 			 if (err) {
@@ -33,7 +34,7 @@ User.prototype.save = function(){
 User.get = function get(username, callback) {
 	 mongodb.open(function(err, db) {
 		 if (err) {
-		 return callback(err);
+			 return callback(err);
 		 }
 	 // 读取 users 集合
 		 db.collection('users', function(err, collection) {

@@ -35,8 +35,16 @@ app.use('/logout', routes);
 
 /*app.use(session({
     secret: settings.cookieSecret,
-    store: new MongoStore({ db: db_instance })
+    store: new MongoStore({
+    host:settings.host, 
+    port:settings.port, 
+    db:settings.db 
+})
 }));*/
+app.use(session({
+  secret: settings.cookieSecret,
+ store: new MongoStore({url: 'mongodb://localhost/microblog'})
+}));
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
