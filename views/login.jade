@@ -1,0 +1,17 @@
+extends layout
+block content
+
+	div.row
+		form(class="form-horizontal" role="form")
+			div.form-group
+				label(for="username" class="col-sm-2 control-label") 用户名
+				div.col-sm-10
+					input(type="text" class="form-control" id="username" placeholder="uesername")
+			div.form-group
+				label(for="password" class="col-sm-2 control-label") 密码
+				div.col-sm-10
+					input(type="password" class="form-control" id="password" placeholder="password")
+			div.form-group
+				div(class="col-sm-offset-2 col-sm-10")
+					button(type="submit" class="btn btn-primary") 登入
+
