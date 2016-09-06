@@ -7,7 +7,7 @@ User.get("sly",function(err, user){
  	if(err){
  		console.log(err);
  	}else
- 	console.log(user.name);
+ 		console.log(user.name);
  });
 /*newuser.save(function(err){
  	if(err){console.log(err);}

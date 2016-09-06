@@ -6,7 +6,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
 
 var session = require('express-session')
 var MongoStore = require('connect-mongo')(session);
@@ -43,7 +42,7 @@ app.use('/logout', routes);
 }));*/
 app.use(session({
   secret: settings.cookieSecret,
- store: new MongoStore({url: 'mongodb://localhost/microblog'})
+  store: new MongoStore({url: 'mongodb://localhost/microblog'})
 }));
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

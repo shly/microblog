@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var crypto = require('crypto');
- var User = require('../models/user.js');
+ var User = require('../models/user');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -34,7 +34,7 @@ router.post('/reg', function(req, res, next) {
 		 if (err) {
 			 //req.flash('error', err);
 			 console.log(err);
-			 return res.redirect('/reg');
+			 res.render('index', { user: newUser.name});
 		 }
 		 //如果不存在则新增用户
 		 newUser.save( function(err) {
@@ -43,6 +43,7 @@ router.post('/reg', function(req, res, next) {
 				// req.flash('error', err);
 				 return res.redirect('/reg');
 			 }
+			 console.log("yes");
 			 req.session.user = newUser;
 			// req.flash('success', ' 注册成功');
 			 res.render('index', { user: newUser.name});
